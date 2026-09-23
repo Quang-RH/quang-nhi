@@ -61,8 +61,8 @@ const CONFIG = {
     // cũng rất sang — dùng tạm được cho tới khi có ảnh cưới.
     background: "images/hero.jpg",
     // Ngày hiển thị cho người đọc
-    dateText:  "Chủ Nhật, 15 · 11 · 2026",
-    lunarText: "Nhằm ngày 27 tháng 9 năm Bính Ngọ",
+    dateText:  "Chủ Nhật, 01 · 11 · 2026",
+    lunarText: "Nhằm ngày 23 tháng 9 năm Bính Ngọ",
     scrollCue: "Kéo xuống để xem thiệp"
   },
 
@@ -72,7 +72,7 @@ const CONFIG = {
      --------------------------------------------------------------- */
   countdown: {
     show:      true,
-    target:    "2026-11-15 11:00",
+    target:    "2026-11-01 11:00",
     title:     "Đếm ngược đến ngày chung đôi",
     doneText:  "Hôm nay là ngày chúng tôi về chung một nhà."
   },
@@ -102,7 +102,7 @@ const CONFIG = {
         name:    "Lễ Vu Quy",
         side:    "Nhà gái",
         time:    "09:00",
-        date:    "Chủ Nhật, 15.11.2026",
+        date:    "Chủ Nhật, 01.11.2026",
         venue:   "Tư gia nhà gái",
         address: "...... , ...... , ......",
         mapUrl:  ""
@@ -111,7 +111,7 @@ const CONFIG = {
         name:    "Lễ Thành Hôn",
         side:    "Nhà trai",
         time:    "11:00",
-        date:    "Chủ Nhật, 15.11.2026",
+        date:    "Chủ Nhật, 01.11.2026",
         venue:   "Tư gia nhà trai",
         address: "...... , ...... , Tây Ninh",
         mapUrl:  ""
@@ -120,7 +120,7 @@ const CONFIG = {
         name:    "Tiệc mừng",
         side:    "Nhà hàng",
         time:    "17:30",
-        date:    "Chủ Nhật, 15.11.2026",
+        date:    "Chủ Nhật, 01.11.2026",
         venue:   "Trung tâm tiệc cưới ......",
         address: "...... , ...... , ......",
         mapUrl:  ""
@@ -159,7 +159,7 @@ const CONFIG = {
     show:     true,
     eyebrow:  "Xác nhận",
     title:    "Quý vị sẽ đến chứ?",
-    note:     "Xin quý vị phản hồi trước ngày 01.11.2026 để gia đình tiện sắp xếp chỗ ngồi.",
+    note:     "Xin quý vị phản hồi trước ngày 20.10.2026 để gia đình tiện sắp xếp chỗ ngồi.",
     endpoint: "",
     thanks:   "Cảm ơn quý vị. Gia đình chúng tôi đã nhận được xác nhận và rất mong ngày gặp mặt."
   },

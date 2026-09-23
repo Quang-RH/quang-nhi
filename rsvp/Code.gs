@@ -21,7 +21,7 @@ var NOTIFY_EMAIL = "hodacquang8182@gmail.com";
 var SHEET_ID = "DÁN_ID_SHEET_VÀO_ĐÂY";
 
 var EVENT_NAME = "Lễ thành hôn Đắc Quang & Trúc Nhi";
-var EVENT_DATE = "Chủ Nhật, 15.11.2026";
+var EVENT_DATE = "Chủ Nhật, 01.11.2026";
 
 /* =============================================================================
    PHẦN KHÔNG CẦN SỬA
