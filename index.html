@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16181C">
+
+<!-- Tiêu đề & ảnh chia sẻ được app.js ghi đè theo CONFIG.site -->
+<title>Thiệp mời lễ thành hôn</title>
+<meta name="description" content="Thiệp mời lễ thành hôn">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thiệp mời lễ thành hôn">
+<meta property="og:description" content="Thiệp mời lễ thành hôn">
+<meta property="og:image" content="">
+<meta property="og:url" content="">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="images/favicon.png">
+
+<!-- Font: Cormorant Garamond (chữ trang trí) + Be Vietnam Pro (chữ đọc)
+     Cả hai đều có bộ ký tự tiếng Việt đầy đủ. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+<!-- ===== MÀN CHÀO: chạm để mở thiệp (đồng thời mở khoá nhạc nền) ===== -->
+<div class="envelope" id="envelope" hidden>
+  <div class="envelope__inner">
+    <div class="ornament ornament--light"></div>
+    <p class="eyebrow eyebrow--light" data-bind="hero.eyebrow"></p>
+    <p class="envelope__monogram" data-bind="couple.monogram"></p>
+    <h1 class="envelope__names">
+      <span data-bind="couple.groom.shortName"></span>
+      <span class="amp">&amp;</span>
+      <span data-bind="couple.bride.shortName"></span>
+    </h1>
+    <p class="envelope__date" data-bind="hero.dateText"></p>
+    <button class="btn btn--gold" id="openCard" type="button">Mở thiệp</button>
+  </div>
+</div>
+
+
+<!-- ===== NỘI DUNG THIỆP ===== -->
+<main id="card" class="card" aria-hidden="true">
+
+  <!-- 1. Màn mở đầu -------------------------------------------------- -->
+  <header class="hero" id="hero">
+    <div class="hero__bg" id="heroBg"></div>
+    <div class="hero__veil"></div>
+    <div class="hero__content">
+      <p class="eyebrow eyebrow--light" data-bind="hero.eyebrow"></p>
+      <p class="hero__monogram" data-bind="couple.monogram"></p>
+      <h1 class="hero__names">
+        <span class="hero__name" data-bind="couple.groom.shortName"></span>
+        <span class="hero__amp">&amp;</span>
+        <span class="hero__name" data-bind="couple.bride.shortName"></span>
+      </h1>
+      <div class="rule rule--light"><span></span></div>
+      <p class="hero__date" data-bind="hero.dateText"></p>
+      <p class="hero__lunar" data-bind="hero.lunarText"></p>
+    </div>
+    <div class="hero__cue"><span data-bind="hero.scrollCue"></span><i></i></div>
+  </header>
+
+  <!-- 2. Lời mời ------------------------------------------------------ -->
+  <section class="section section--ivory reveal" id="invitation" hidden>
+    <div class="wrap wrap--text center">
+      <p class="eyebrow" data-bind="invitation.eyebrow"></p>
+      <h2 class="h2" data-bind="invitation.title"></h2>
+      <div class="rule"><span></span></div>
+      <p class="guest-line" id="guestLine" hidden>
+        Kính mời <strong id="guestName"></strong>
+      </p>
+      <p class="lead" data-bind="invitation.body"></p>
+    </div>
+  </section>
+
+  <!-- 3. Hai họ ------------------------------------------------------- -->
+  <section class="section section--tint reveal" id="families">
+    <div class="wrap">
+      <div class="families" id="familiesGrid"><!-- app.js dựng --></div>
+    </div>
+  </section>
+
+  <!-- 4. Chương trình -------------------------------------------------- -->
+  <section class="section section--ivory reveal" id="events" hidden>
+    <div class="wrap center">
+      <p class="eyebrow" data-bind="events.eyebrow"></p>
+      <h2 class="h2" data-bind="events.title"></h2>
+      <div class="rule"><span></span></div>
+      <div class="events" id="eventsGrid"><!-- app.js dựng --></div>
+    </div>
+  </section>
+
+  <!-- 5. Đếm ngược ---------------------------------------------------- -->
+  <section class="section section--ink reveal" id="countdown" hidden>
+    <div class="wrap center">
+      <p class="eyebrow eyebrow--light" data-bind="countdown.title"></p>
+      <div class="countdown" id="countdownGrid" role="timer" aria-live="off"></div>
+      <p class="countdown__done" id="countdownDone" hidden data-bind="countdown.doneText"></p>
+    </div>
+  </section>
+
+  <!-- 6. Album -------------------------------------------------------- -->
+  <section class="section section--ivory reveal" id="album" hidden>
+    <div class="wrap center">
+      <p class="eyebrow" data-bind="album.eyebrow"></p>
+      <h2 class="h2" data-bind="album.title"></h2>
+      <div class="rule"><span></span></div>
+      <p class="note" data-bind="album.note"></p>
+      <div class="gallery" id="galleryGrid"><!-- app.js dựng --></div>
+    </div>
+  </section>
+
+  <!-- 7. Xác nhận tham dự --------------------------------------------- -->
+  <section class="section section--tint reveal" id="rsvp" hidden>
+    <div class="wrap wrap--text center">
+      <p class="eyebrow" data-bind="rsvp.eyebrow"></p>
+      <h2 class="h2" data-bind="rsvp.title"></h2>
+      <div class="rule"><span></span></div>
+      <p class="note" data-bind="rsvp.note"></p>
+
+      <form class="form" id="rsvpForm" novalidate>
+        <div class="field">
+          <label for="rsvpName">Quý danh</label>
+          <input id="rsvpName" name="name" type="text" autocomplete="name" required
+                 placeholder="Tên của quý vị">
+        </div>
+
+        <fieldset class="field">
+          <legend>Quý vị có đến dự được không?</legend>
+          <div class="choice">
+            <label class="choice__item">
+              <input type="radio" name="attend" value="Có đến" checked>
+              <span>Chúng tôi sẽ đến</span>
+            </label>
+            <label class="choice__item">
+              <input type="radio" name="attend" value="Không đến được">
+              <span>Rất tiếc, không đến được</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="field" id="guestsField">
+          <label for="rsvpGuests">Số người tham dự</label>
+          <input id="rsvpGuests" name="guests" type="number" min="1" max="20" value="1" inputmode="numeric">
+        </div>
+
+        <div class="field">
+          <label for="rsvpMessage">Lời nhắn (không bắt buộc)</label>
+          <textarea id="rsvpMessage" name="message" rows="3"
+                    placeholder="Đôi lời gửi tới cô dâu chú rể..."></textarea>
+        </div>
+
+        <button class="btn btn--solid" type="submit" id="rsvpSubmit">Gửi xác nhận</button>
+        <p class="form__status" id="rsvpStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 8. Mừng cưới ---------------------------------------------------- -->
+  <section class="section section--ivory reveal" id="gift" hidden>
+    <div class="wrap center">
+      <p class="eyebrow" data-bind="gift.eyebrow"></p>
+      <h2 class="h2" data-bind="gift.title"></h2>
+      <div class="rule"><span></span></div>
+      <p class="note note--wide" data-bind="gift.note"></p>
+      <div class="gift" id="giftGrid"><!-- app.js dựng --></div>
+    </div>
+  </section>
+
+  <!-- 9. Sổ lưu bút --------------------------------------------------- -->
+  <section class="section section--tint reveal" id="guestbook" hidden>
+    <div class="wrap wrap--text center">
+      <p class="eyebrow" data-bind="guestbook.eyebrow"></p>
+      <h2 class="h2" data-bind="guestbook.title"></h2>
+      <div class="rule"><span></span></div>
+      <p class="note" data-bind="guestbook.note"></p>
+
+      <form class="form" id="wishForm" novalidate>
+        <div class="field">
+          <label for="wishName">Quý danh</label>
+          <input id="wishName" name="name" type="text" autocomplete="name" required
+                 placeholder="Tên của quý vị">
+        </div>
+        <div class="field">
+          <label for="wishText">Lời chúc</label>
+          <textarea id="wishText" name="message" rows="4" required></textarea>
+        </div>
+        <button class="btn btn--solid" type="submit" id="wishSubmit">Gửi lời chúc</button>
+        <p class="form__status" id="wishStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 10. Lời kết ----------------------------------------------------- -->
+  <footer class="footer">
+    <div class="ornament ornament--light"></div>
+    <p class="footer__message" data-bind="footer.message"></p>
+    <p class="footer__signature" data-bind="footer.signature"></p>
+    <p class="footer__date" data-bind="hero.dateText"></p>
+  </footer>
+
+</main>
+
+
+<!-- ===== Nút nhạc nền (góc màn hình) ===== -->
+<button class="music" id="musicBtn" type="button" hidden
+        aria-label="Bật / tắt nhạc nền" aria-pressed="false">
+  <span class="music__icon" aria-hidden="true"><i></i><i></i><i></i></span>
+</button>
+<audio id="musicEl" loop preload="none"></audio>
+
+
+<!-- ===== Khung xem ảnh lớn ===== -->
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Xem ảnh">
+  <button class="lightbox__close" id="lbClose" type="button" aria-label="Đóng">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Ảnh trước">&#8249;</button>
+  <img class="lightbox__img" id="lbImg" alt="">
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Ảnh sau">&#8250;</button>
+  <p class="lightbox__count" id="lbCount"></p>
+</div>
+
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

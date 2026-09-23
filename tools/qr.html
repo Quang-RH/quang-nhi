@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tạo mã QR cho thiệp cưới</title>
+<style>
+  :root {
+    --ink:#16181C; --ivory:#FBF8F3; --gold:#B08D4F; --line:#E3DCCF;
+    --text:#2A2D33; --soft:#6B6F78;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; padding:2.5rem 1.25rem 4rem;
+    background:var(--ivory); color:var(--text);
+    font:400 15px/1.7 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  .wrap { max-width:42rem; margin:0 auto; }
+  h1 { font-size:1.5rem; font-weight:600; margin:0 0 .35rem; }
+  .sub { margin:0 0 2rem; color:var(--soft); font-size:.9rem; }
+
+  .box {
+    background:#fff; border:1px solid var(--line); border-radius:6px;
+    padding:1.5rem; margin-bottom:1.25rem;
+  }
+  label { display:block; font-size:.75rem; font-weight:600; letter-spacing:.12em;
+          text-transform:uppercase; color:var(--soft); margin-bottom:.5rem; }
+  input, select {
+    width:100%; padding:.7em .85em; font:inherit;
+    border:1px solid var(--line); border-radius:4px; background:#fff; color:var(--text);
+  }
+  input:focus, select:focus { outline:0; border-color:var(--gold); }
+  .row { display:flex; gap:1rem; flex-wrap:wrap; }
+  .row > * { flex:1 1 12rem; }
+
+  .btn {
+    display:inline-block; padding:.75em 1.8em; margin:.25rem .5rem .25rem 0;
+    border:1px solid var(--gold); border-radius:4px; background:transparent;
+    color:var(--gold); font:inherit; font-size:.8rem; font-weight:600;
+    letter-spacing:.12em; text-transform:uppercase; cursor:pointer;
+  }
+  .btn:hover { background:var(--gold); color:#fff; }
+  .btn--solid { background:var(--ink); border-color:var(--ink); color:#F2EDE4; }
+  .btn--solid:hover { background:var(--gold); border-color:var(--gold); }
+
+  /* Khung QR: đây chính là thứ đem đi in */
+  .card {
+    text-align:center; padding:2.25rem 1.5rem;
+    background:#fff; border:1px solid var(--line);
+  }
+  #qr { display:inline-block; line-height:0; }
+  #qr img, #qr canvas { display:block; }
+  .card__caption {
+    margin:1.1rem 0 0; font-size:.8rem; letter-spacing:.06em;
+    color:var(--text); word-break:break-all;
+  }
+  .card__hint {
+    margin:.5rem 0 0; font-size:.7rem; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--gold);
+  }
+
+  .warn {
+    margin-top:1.25rem; padding:1rem 1.25rem;
+    border-left:3px solid var(--gold); background:#fff;
+    font-size:.85rem; line-height:1.75;
+  }
+  .warn b { color:var(--ink); }
+  code { background:var(--ivory); padding:.1em .4em; border-radius:3px; font-size:.9em; }
+
+  @media print {
+    body { background:#fff; padding:0; }
+    .box, h1, .sub, .warn, .btn { display:none !important; }
+    .card { border:0; padding:0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Tạo mã QR cho thiệp cưới</h1>
+  <p class="sub">
+    Mở file này bằng trình duyệt (nhấp đúp là được). Mã QR sinh ra ngay trên máy,
+    không gửi gì lên mạng.
+  </p>
+
+  <div class="box">
+    <label for="url">Đường link thiệp (QR sẽ mã hoá đúng chuỗi này)</label>
+    <input id="url" type="text" value="https://quang-rh.github.io/quang-nhi/">
+
+    <div class="row" style="margin-top:1.25rem">
+      <div>
+        <label for="size">Kích thước (điểm ảnh)</label>
+        <select id="size">
+          <option value="600">600 — dán thiệp giấy</option>
+          <option value="1000" selected>1000 — in đẹp, khuyên dùng</option>
+          <option value="1600">1600 — bảng lớn, standee</option>
+        </select>
+      </div>
+      <div>
+        <label for="color">Màu mã</label>
+        <select id="color">
+          <option value="#16181C" selected>Đen mực (an toàn nhất)</option>
+          <option value="#B08D4F">Vàng champagne (hợp tông thiệp)</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem">
+      <button class="btn btn--solid" id="gen" type="button">Tạo mã</button>
+      <button class="btn" id="dl" type="button">Tải ảnh PNG</button>
+      <button class="btn" id="print" type="button">In</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div id="qr"></div>
+    <p class="card__caption" id="caption"></p>
+    <p class="card__hint">Quét mã để xem thiệp mời</p>
+  </div>
+
+  <div class="warn">
+    <b>Điều quan trọng nhất:</b> mã QR chỉ mã hoá <i>đường link</i>, không chứa nội dung thiệp.
+    Nên khi bạn sửa tên, ngày, địa điểm, thêm ảnh... rồi đẩy lên GitHub,
+    <b>mã QR đã in vẫn dùng được bình thường</b> — khách quét sẽ thấy nội dung mới nhất.
+    <br><br>
+    Điều <b>duy nhất</b> làm hỏng mã QR đã in là <b>đổi đường link</b>
+    (đổi tên repo, đổi tài khoản GitHub, gắn tên miền riêng rồi bỏ link cũ).
+    <br><br>
+    Dán link có kèm tên khách (<code>?ten=Anh%20Nam</code>) thì gửi qua Zalo được,
+    nhưng <b>đừng in QR loại đó</b> — mỗi khách một mã là không in nổi.
+    Mã in trên thiệp giấy phải là link trần.
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function () {
+  var box = document.getElementById('qr');
+  var qr  = null;
+
+  function taoMa() {
+    var url   = document.getElementById('url').value.trim();
+    var size  = Number(document.getElementById('size').value);
+    var color = document.getElementById('color').value;
+
+    if (!url) { alert('Chưa nhập đường link.'); return; }
+
+    box.innerHTML = '';
+    // Mức sửa lỗi H: mã vẫn quét được dù in mờ hoặc bị che một góc nhỏ.
+    qr = new QRCode(box, {
+      text: url,
+      width: size,
+      height: size,
+      colorDark: color,
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    // Hiện vừa màn hình, nhưng ảnh tải về vẫn đúng kích thước thật đã chọn.
+    setTimeout(function () {
+      var el = box.querySelector('img') || box.querySelector('canvas');
+      if (el) { el.style.width = 'min(260px, 60vw)'; el.style.height = 'auto'; }
+    }, 60);
+
+    document.getElementById('caption').textContent = url.replace(/^https?:\/\//, '');
+  }
+
+  function taiVe() {
+    var cv = box.querySelector('canvas');
+    if (!cv) { alert('Bấm "Tạo mã" trước đã.'); return; }
+    var a = document.createElement('a');
+    a.download = 'qr-thiep-cuoi.png';
+    a.href = cv.toDataURL('image/png');
+    a.click();
+  }
+
+  document.getElementById('gen').addEventListener('click', taoMa);
+  document.getElementById('dl').addEventListener('click', taiVe);
+  document.getElementById('print').addEventListener('click', function () { window.print(); });
+
+  taoMa();
+})();
+</script>
+</body>
+</html>

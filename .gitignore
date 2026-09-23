@@ -1,0 +1,14 @@
+# Windows
+Thumbs.db
+desktop.ini
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Anh goc chua nen - dung day len repo
+images/**/*_raw.*
+images/**/goc/
