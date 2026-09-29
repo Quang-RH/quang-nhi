@@ -34,9 +34,9 @@ const CONFIG = {
       role:      "Chú rể",
       photo:     "images/groom.jpg",
       intro:     "Con trai",
-      father:    "Ông Hồ Văn ......",
-      mother:    "Bà Nguyễn Thị ......",
-      address:   "...... , Tây Ninh"
+      father:    "Ông Hồ Quang Minh",
+      mother:    "Bà Nguyễn Mộng Thúy",
+      address:   "Đường Quốc lộ 13 cũ, Phường Hiệp Bình, TP. Hồ Chí Minh"
     },
     bride: {
       fullName:  "Bùi Trúc Nhi",
@@ -44,9 +44,9 @@ const CONFIG = {
       role:      "Cô dâu",
       photo:     "images/bride.jpg",
       intro:     "Con gái",
-      father:    "Ông Bùi Văn ......",
-      mother:    "Bà Trần Thị ......",
-      address:   "...... , ......"
+      father:    "Ông Bùi Anh Tuấn",
+      mother:    "Bà Nguyễn Đàm Quỳnh Giao",
+      address:   "Đường Phạm Thị Hớn, Xã Phước Lý, Tỉnh Tây Ninh"
     },
     // Chữ lồng hiện trên màn mở đầu
     monogram: "Q & N"
@@ -108,21 +108,21 @@ const CONFIG = {
         mapUrl:  ""
       },
       {
-        name:    "Lễ Thành Hôn",
-        side:    "Nhà trai",
+        name:    "Tiệc cưới",
+        side:    "Nhà hàng",
         time:    "11:00",
-        date:    "Chủ Nhật, 01.11.2026",
-        venue:   "Tư gia nhà trai",
-        address: "...... , ...... , Tây Ninh",
-        mapUrl:  ""
+        date:    "Chủ Nhật, 01.11.2026 · Khai tiệc 12:00",
+        venue:   "Gold Palace · Sảnh tiệc tầng 5",
+        address: "329 Nơ Trang Long, Phường Bình Lợi Trung, TP. Hồ Chí Minh",
+        mapUrl:  "https://www.google.com/maps/search/?api=1&query=Gold+Palace+329+N%C6%A1+Trang+Long+TP+H%E1%BB%93+Ch%C3%AD+Minh"
       },
       {
-        name:    "Tiệc mừng",
-        side:    "Nhà hàng",
-        time:    "17:30",
-        date:    "Chủ Nhật, 01.11.2026",
-        venue:   "Trung tâm tiệc cưới ......",
-        address: "...... , ...... , ......",
+        name:    "Lễ Thành Hôn",
+        side:    "Nhà trai",
+        time:    "11:30",
+        date:    "Thứ Ba, 03.11.2026",
+        venue:   "Tư gia nhà trai",
+        address: "Đường Quốc lộ 13 cũ, Phường Hiệp Bình, TP. Hồ Chí Minh",
         mapUrl:  ""
       }
     ]
