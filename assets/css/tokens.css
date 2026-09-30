@@ -26,7 +26,7 @@
   /* ---- Chỉnh màu ảnh cho ăn tông be (áp cho MỌI ảnh trên thiệp) ----
      sepia = độ ấm · saturate < 1 = dịu bớt màu gắt (đỏ chữ Hỷ, xanh cỏ).
      Muốn ảnh giữ nguyên màu gốc: đổi thành  --photo-grade: none; */
-  --photo-grade: sepia(.06) saturate(.94) brightness(1.07);   /* nhẹ tay: không làm sạm da */
+  --photo-grade: none;   /* ảnh đã được thợ chỉnh màu → giữ nguyên màu gốc */
 
   /* ---- Lớp phủ nâu mocha trên ảnh nền (đếm ngược, lời kết, màn chào) ---- */
   --scene-veil: linear-gradient(180deg, rgba(58,44,34,.62), rgba(58,44,34,.80));
