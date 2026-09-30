@@ -143,13 +143,15 @@ const CONFIG = {
       { src: "images/album/01.jpg", alt: "Hai đứa dưới cổng hoa", size: "tall" },
       { src: "images/album/02.jpg", alt: "Nụ hôn dưới voan", size: "" },
       { src: "images/album/03.jpg", alt: "Nhấc bổng nhau lên", size: "" },
-      { src: "images/album/04.jpg", alt: "Cái ôm ngày chung vui", size: "" },
+      { src: "images/album/04.jpg", alt: "Nụ cười sau tấm voan", size: "" },
       { src: "images/album/05.jpg", alt: "Hai đứa bên chữ Hỷ", size: "tall" },
-      { src: "images/album/06.jpg", alt: "Nụ hôn khoe nhẫn", size: "" },
-      { src: "images/album/07.jpg", alt: "Chiếc nhẫn trên tay", size: "" },
-      { src: "images/album/08.jpg", alt: "Lời thề For Love", size: "tall" },
-      { src: "images/album/09.jpg", alt: "Cổ phục nhìn nhau", size: "" },
-      { src: "images/album/10.jpg", alt: "Đôi nhẫn cưới", size: "wide" }
+      { src: "images/album/06.jpg", alt: "Chiếc nhẫn trên tay", size: "" },
+      { src: "images/album/07.jpg", alt: "Tay trong tay", size: "tall" },
+      { src: "images/album/08.jpg", alt: "Cổ phục ngày chung đôi", size: "" },
+      { src: "images/album/09.jpg", alt: "Hộp nhẫn cưới", size: "" },
+      { src: "images/album/10.jpg", alt: "Khoe nhẫn", size: "" },
+      { src: "images/album/11.jpg", alt: "Giữa vườn hoa trắng", size: "" },
+      { src: "images/album/12.jpg", alt: "Đôi nhẫn cưới", size: "wide" }
     ]
   },
 
@@ -233,11 +235,11 @@ const CONFIG = {
     countdown: "images/album/03.jpg",
     footer:    "images/album/01.jpg",
     bands: [
-      { after: "invitation", src: "images/album/02.jpg",
+      { after: "invitation", src: "images/band/b1.jpg",
         quote: "Và rồi, chúng tôi chọn nhau", sub: "cho hôm nay và mọi ngày về sau" },
-      { after: "events",     src: "images/album/09.jpg",
+      { after: "events",     src: "images/band/b2.jpg",
         quote: "Trăm năm tình viên mãn", sub: "Bạc đầu nghĩa phu thê" },
-      { after: "gift",       src: "images/album/06.jpg",
+      { after: "gift",       src: "images/band/b3.jpg",
         quote: "Cảm ơn vì đã là một phần", sub: "trong ngày đẹp nhất của chúng tôi" }
     ]
   },
