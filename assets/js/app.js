@@ -146,10 +146,11 @@
           '" target="_blank" rel="noopener">Xem bản đồ</a></p>'
         : '';
       return '<article class="event">' +
-        '<p class="event__side">' + esc(e.side || '') + '</p>' +
+        // Thứ tự: tên lễ → bên → NGÀY (chữ lớn) → giờ (dòng nhỏ bên dưới)
         '<h3 class="event__name">' + esc(e.name || '') + '</h3>' +
-        '<p class="event__time">' + esc(e.time || '') + '</p>' +
+        '<p class="event__side">' + esc(e.side || '') + '</p>' +
         '<p class="event__date">' + esc(e.date || '') + '</p>' +
+        '<p class="event__time">' + esc(e.time || '') + '</p>' +
         (filled(e.venue)   ? '<p class="event__venue">' + esc(e.venue) + '</p>' : '') +
         (filled(e.address) ? '<p class="event__address">' + esc(e.address) + '</p>' : '') +
         map +

@@ -1017,3 +1017,25 @@ body::before {
 .guest-line strong { color: var(--c-accent); }
 /* Trên nền ảnh tối: đỏ đậm khó đọc → dùng đỏ hồng sáng hơn cho con số đếm ngược */
 .cd__num       { color: #F0C9C2; }
+
+/* Thẻ chương trình: tên lễ lên đầu · NGÀY là dòng lớn nhất · giờ nằm dưới */
+.event__name { order: 0; margin: 0 0 .35rem; font-size: clamp(1.5rem, 5vw, 1.9rem); }
+.event__side { margin: 0 0 var(--sp-3); }
+.event__date {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: clamp(1.7rem, 6.4vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.event__time {
+  margin: .6rem 0 var(--sp-3);
+  font-family: var(--f-body);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  letter-spacing: .04em;
+  line-height: 1.5;
+}
+.event__date { font-variant-numeric: lining-nums; }   /* số thẳng hàng, không lên xuống như chữ viết */

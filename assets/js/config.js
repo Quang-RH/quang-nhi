@@ -101,8 +101,8 @@ const CONFIG = {
       {
         name:    "Tiệc cưới",
         side:    "Nhà hàng",
-        time:    "11:00",
-        date:    "Chủ Nhật, 01.11.2026 · Khai tiệc 12:00",
+        date:    "Chủ Nhật - 01.11.2026",
+        time:    "Đón khách 11:00 | Khai tiệc 12:00",
         venue:   "Gold Palace · Sảnh tiệc tầng 5",
         address: "329 Nơ Trang Long, Phường Bình Lợi Trung, TP. Hồ Chí Minh",
         mapUrl:  "https://www.google.com/maps/search/?api=1&query=Gold+Palace+329+N%C6%A1+Trang+Long+TP+H%E1%BB%93+Ch%C3%AD+Minh"
@@ -110,8 +110,8 @@ const CONFIG = {
       {
         name:    "Lễ Vu Quy",
         side:    "Nhà gái",
-        time:    "08:00",
-        date:    "Thứ Ba, 03.11.2026",
+        date:    "Thứ Ba - 03.11.2026",
+        time:    "Hôn lễ cử hành lúc 08:00",
         venue:   "Tư gia nhà gái",
         address: "Đường Phạm Thị Hớn, Xã Phước Lý, Tỉnh Tây Ninh",
         mapUrl:  "https://www.google.com/maps/search/?api=1&query=10.647887,106.560695"
@@ -119,8 +119,8 @@ const CONFIG = {
       {
         name:    "Lễ Thành Hôn",
         side:    "Nhà trai",
-        time:    "11:30",
-        date:    "Thứ Ba, 03.11.2026",
+        date:    "Thứ Ba - 03.11.2026",
+        time:    "Hôn lễ cử hành lúc 11:30",
         venue:   "Tư gia nhà trai",
         address: "Đường Quốc lộ 13 cũ, Phường Hiệp Bình, TP. Hồ Chí Minh",
         mapUrl:  ""
