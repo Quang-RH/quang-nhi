@@ -220,6 +220,29 @@ const CONFIG = {
   },
 
   /* ---------------------------------------------------------------
+     11b. ẢNH XUYÊN TRANG — cho thiệp "sống" cùng ảnh cưới
+     • envelope / countdown / footer: ảnh làm nền (phủ nâu mocha cho chữ dễ đọc)
+     • bands: dải ảnh tràn màn hình chen GIỮA các mục, mép mờ dần vào nền be.
+       after = id của mục đứng ngay trên dải ảnh
+       (invitation · families · events · countdown · album · rsvp · gift · guestbook)
+     Muốn bỏ một dải: xoá khối { ... } đó. Muốn tắt hết: show: false
+     --------------------------------------------------------------- */
+  scenery: {
+    show:      true,
+    envelope:  "images/hero.jpg",
+    countdown: "images/album/03.jpg",
+    footer:    "images/album/01.jpg",
+    bands: [
+      { after: "invitation", src: "images/album/02.jpg",
+        quote: "Và rồi, chúng tôi chọn nhau", sub: "cho hôm nay và mọi ngày về sau" },
+      { after: "events",     src: "images/album/09.jpg",
+        quote: "Trăm năm tình viên mãn", sub: "Bạc đầu nghĩa phu thê" },
+      { after: "gift",       src: "images/album/06.jpg",
+        quote: "Cảm ơn vì đã là một phần", sub: "trong ngày đẹp nhất của chúng tôi" }
+    ]
+  },
+
+  /* ---------------------------------------------------------------
      12. LỜI KẾT
      --------------------------------------------------------------- */
   footer: {

@@ -540,14 +540,87 @@
 
 
   /* ===================================================================
+     11b. ẢNH XUYÊN TRANG — nền ảnh cho các khối đậm + dải ảnh giữa các mục
+     =================================================================== */
+  function setScene(el, src) {
+    if (!el || !filled(src)) return;
+    var probe = new Image();
+    probe.onload = function () {
+      // Đường dẫn tuyệt đối: url() trong biến CSS tính theo file .css, không theo trang
+      el.style.setProperty('--scene', 'url("' + new URL(src, location.href).href + '")');
+      el.classList.add('has-scene');
+    };
+    probe.src = src;
+  }
+
+  function buildScenery() {
+    var c = CONFIG.scenery;
+    if (!c || !c.show) return;
+    setScene($('#envelope'),  c.envelope);
+    setScene($('#countdown'), c.countdown);
+    setScene($('.footer'),    c.footer);
+
+    (c.bands || []).forEach(function (b) {
+      var host = document.getElementById(b.after);
+      if (!host || !filled(b.src)) return;
+      var band = document.createElement('figure');
+      band.className = 'band';
+      band.innerHTML =
+        '<img class="band__img" src="' + esc(b.src) + '" alt="" loading="lazy">' +
+        '<figcaption class="band__text">' +
+          (filled(b.quote) ? '<span class="band__quote">' + esc(b.quote) + '</span>' : '') +
+          (filled(b.sub)   ? '<span class="band__sub">'   + esc(b.sub)   + '</span>' : '') +
+        '</figcaption>';
+      $('img', band).addEventListener('error', function () { band.remove(); });
+      host.parentNode.insertBefore(band, host.nextSibling);
+    });
+  }
+
+  /* Ảnh trong dải trôi chậm hơn trang một chút (parallax nhẹ) */
+  function wireParallax() {
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var imgs = $$('.band__img');
+    if (!imgs.length) return;
+    var ticking = false;
+    function update() {
+      var vh = window.innerHeight;
+      imgs.forEach(function (img) {
+        var r = img.parentNode.getBoundingClientRect();
+        if (r.bottom < -100 || r.top > vh + 100) return;
+        var shift = ((r.top + r.height / 2) - vh / 2) * -0.14;
+        img.style.transform = 'translate3d(0,' + shift.toFixed(1) + 'px,0) scale(1.18)';
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
+
+  /* ===================================================================
      11. HIỆN DẦN KHI CUỘN TỚI
      =================================================================== */
   function wireReveal() {
     var targets = $$('.reveal');
+    var singles = $$('.photo, .band, .family');
     if (!('IntersectionObserver' in window)) {
-      targets.forEach(function (t) { t.classList.add('is-in'); });
+      targets.concat(singles).forEach(function (t) { t.classList.add('is-in'); });
       return;
     }
+    // Ảnh album / dải ảnh / thẻ hai họ: hiện riêng từng cái, lệch nhịp theo cột
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        if (el.classList.contains('photo')) el.style.transitionDelay = ((Number(el.dataset.i) % 3) * 110) + 'ms';
+        el.classList.add('is-in');
+        io2.unobserve(el);
+      });
+    }, { threshold: 0.15 });
+    singles.forEach(function (t) { io2.observe(t); });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
@@ -616,8 +689,10 @@
     buildGift();
     buildGuestbook();
     buildMusic();
+    buildScenery();
     wireLightbox();
     wireReveal();
+    wireParallax();
     wireEnvelope();
   }
 

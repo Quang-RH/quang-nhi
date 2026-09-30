@@ -23,6 +23,14 @@
   --c-gold-soft:  #C8AE8E;   /* be sữa — đường kẻ mảnh */
   --c-gold-pale:  #E7DAC7;   /* be rất nhạt — nền badge */
 
+  /* ---- Chỉnh màu ảnh cho ăn tông be (áp cho MỌI ảnh trên thiệp) ----
+     sepia = độ ấm · saturate < 1 = dịu bớt màu gắt (đỏ chữ Hỷ, xanh cỏ).
+     Muốn ảnh giữ nguyên màu gốc: đổi thành  --photo-grade: none; */
+  --photo-grade: sepia(.16) saturate(.86) contrast(.96) brightness(1.03);
+
+  /* ---- Lớp phủ nâu mocha trên ảnh nền (đếm ngược, lời kết, màn chào) ---- */
+  --scene-veil: linear-gradient(180deg, rgba(58,44,34,.62), rgba(58,44,34,.80));
+
   /* ---- Đường kẻ ---- */
   --c-line:       #DDCFBC;
   --c-line-dark:  #6B5646;
