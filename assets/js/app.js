@@ -435,6 +435,15 @@
     $('#gift').hidden = false;
 
     $('#giftGrid').innerHTML = c.accounts.map(function (a) {
+      // Chưa có số tài khoản (còn "......") → giữ chỗ thẻ, hiện ô "Đang cập nhật"
+      if (!filled(a.number)) {
+        return '<div class="gift__card gift__card--pending">' +
+          '<p class="gift__side">' + esc(a.side || '') + '</p>' +
+          '<div class="gift__qr gift__qr--pending" aria-hidden="true"><span>Đang cập nhật</span></div>' +
+          (filled(a.owner) ? '<p class="gift__owner">' + esc(a.owner) + '</p>' : '') +
+          '<p class="gift__bank">Thông tin sẽ được bổ sung sớm</p>' +
+          '</div>';
+      }
       var qr = filled(a.qr)
         ? '<img class="gift__qr" src="' + esc(a.qr) + '" alt="Mã QR chuyển khoản ' +
           esc(a.side) + '" loading="lazy" onerror="this.remove()">'

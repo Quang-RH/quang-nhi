@@ -654,6 +654,14 @@ body.is-locked { overflow: hidden; }
   border: 1px solid var(--c-line);
   background: #fff;
 }
+.gift__qr--pending {
+  display: grid; place-items: center;
+  aspect-ratio: 1; background: var(--c-ivory-2);
+  border: 1px dashed var(--c-gold-soft);
+}
+.gift__qr--pending span {
+  font-size: var(--fs-small); letter-spacing: .12em; text-transform: uppercase; color: var(--c-gold);
+}
 .gift__owner { margin: 0; font-weight: 500; letter-spacing: .04em; }
 .gift__bank  { margin: .2rem 0 .6rem; font-size: var(--fs-small); color: var(--c-text-soft); }
 

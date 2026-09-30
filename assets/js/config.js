@@ -184,15 +184,16 @@ const CONFIG = {
         bank:   "ACB",
         number: "18639967",
         qr:     "images/qr/groom.png"
+      },
+      {
+        // Nhà gái: bổ sung sau — điền bank + number + qr là thẻ tự hiện QR.
+        // Còn "......" thì thẻ hiện ô "Đang cập nhật".
+        side:   "Nhà gái",
+        owner:  "BUI TRUC NHI",
+        bank:   "......",
+        number: "......",
+        qr:     "images/qr/bride.png"
       }
-      // Nhà gái: bổ sung sau — bỏ dấu // ở 7 dòng dưới, điền đúng thông tin, thêm dấu phẩy sau "}" ở trên
-      // ,{
-      //   side:   "Nhà gái",
-      //   owner:  "BUI TRUC NHI",
-      //   bank:   "......",
-      //   number: "......",
-      //   qr:     "images/qr/bride.png"
-      // }
     ]
   },
 
