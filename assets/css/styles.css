@@ -110,7 +110,7 @@ body.is-locked { overflow: hidden; }
   transform: rotate(45deg);
 }
 .rule--light::before, .rule--light::after {
-  background: linear-gradient(90deg, transparent, rgba(203,177,131,.75));
+  background: linear-gradient(90deg, transparent, rgba(200,174,142,.75));
 }
 .rule--light span { border-color: var(--c-gold-soft); }
 
@@ -128,7 +128,7 @@ body.is-locked { overflow: hidden; }
   border: 1px solid var(--c-gold);
   transform: rotate(45deg);
 }
-.ornament--light { border-color: rgba(203,177,131,.45); }
+.ornament--light { border-color: rgba(200,174,142,.45); }
 
 /* ---------- Nút ---------- */
 .btn {
@@ -178,8 +178,8 @@ body.is-locked { overflow: hidden; }
 .envelope__inner {
   max-width: 30rem;
   padding: clamp(2rem, 8vw, 3.5rem) clamp(1.5rem, 7vw, 3rem);
-  border: 1px solid rgba(203,177,131,.28);
-  outline: 1px solid rgba(203,177,131,.14);
+  border: 1px solid rgba(200,174,142,.28);
+  outline: 1px solid rgba(200,174,142,.14);
   outline-offset: 7px;
 }
 .envelope__monogram {
@@ -242,15 +242,15 @@ body.is-locked { overflow: hidden; }
 .hero__veil {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(10,11,14,.55) 0%, rgba(10,11,14,.35) 45%, rgba(10,11,14,.75) 100%);
+    linear-gradient(180deg, rgba(52,39,30,.50) 0%, rgba(52,39,30,.28) 45%, rgba(52,39,30,.72) 100%);
 }
 
 .hero__content {
   position: relative;
   max-width: 38rem;
   padding: clamp(2.5rem, 9vw, 4.5rem) clamp(1.5rem, 7vw, 3.5rem);
-  border: 1px solid rgba(203,177,131,.3);
-  outline: 1px solid rgba(203,177,131,.15);
+  border: 1px solid rgba(200,174,142,.3);
+  outline: 1px solid rgba(200,174,142,.15);
   outline-offset: 9px;
   backdrop-filter: blur(1.5px);
 }
@@ -502,6 +502,7 @@ body.is-locked { overflow: hidden; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   grid-auto-rows: 13rem;
+  grid-auto-flow: dense;   /* tự lấp ô trống khi trộn ảnh cao/rộng */
   gap: clamp(.5rem, 1.5vw, .875rem);
   margin-top: var(--sp-3);
 }
@@ -516,6 +517,7 @@ body.is-locked { overflow: hidden; }
 .photo img {
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center 25%;   /* ảnh dọc cắt ô vuông: giữ phần mặt, đừng cắt đầu */
   transition: transform .8s var(--ease), filter .5s var(--ease);
 }
 .photo:hover img { transform: scale(1.06); filter: brightness(1.04); }
@@ -572,7 +574,7 @@ body.is-locked { overflow: hidden; }
 .field input:focus, .field textarea:focus {
   outline: 0;
   border-color: var(--c-gold);
-  box-shadow: 0 0 0 3px rgba(176,141,79,.12);
+  box-shadow: 0 0 0 3px rgba(160,126,90,.14);
 }
 .field input.is-error, .field textarea.is-error { border-color: var(--c-miss); }
 
@@ -721,7 +723,7 @@ body.is-locked { overflow: hidden; }
   display: grid; place-items: center;
   border: 1px solid var(--c-gold-soft);
   border-radius: 50%;
-  background: rgba(22,24,28,.82);
+  background: rgba(52,39,30,.82);
   backdrop-filter: blur(6px);
   transition: transform .3s var(--ease), background .3s var(--ease);
 }
@@ -748,7 +750,7 @@ body.is-locked { overflow: hidden; }
   align-items: center;
   gap: clamp(.25rem, 2vw, 1rem);
   padding: clamp(2.75rem, 8vw, 4rem) clamp(.5rem, 3vw, 2rem);
-  background: rgba(12,13,16,.95);
+  background: rgba(40,30,23,.95);
   backdrop-filter: blur(4px);
 }
 .lightbox__img {

@@ -140,12 +140,16 @@ const CONFIG = {
     title:   "Khoảnh khắc của chúng tôi",
     note:    "Chạm vào ảnh để xem lớn",
     photos: [
-      { src: "images/album/01.jpg", alt: "Ảnh cưới 1", size: "tall" },
-      { src: "images/album/02.jpg", alt: "Ảnh cưới 2", size: "wide" },
-      { src: "images/album/03.jpg", alt: "Ảnh cưới 3", size: "" },
-      { src: "images/album/04.jpg", alt: "Ảnh cưới 4", size: "" },
-      { src: "images/album/05.jpg", alt: "Ảnh cưới 5", size: "tall" },
-      { src: "images/album/06.jpg", alt: "Ảnh cưới 6", size: "wide" }
+      { src: "images/album/01.jpg", alt: "Hai đứa dưới cổng hoa", size: "tall" },
+      { src: "images/album/02.jpg", alt: "Nụ hôn dưới voan", size: "" },
+      { src: "images/album/03.jpg", alt: "Nhấc bổng nhau lên", size: "" },
+      { src: "images/album/04.jpg", alt: "Cái ôm ngày chung vui", size: "" },
+      { src: "images/album/05.jpg", alt: "Hai đứa bên chữ Hỷ", size: "tall" },
+      { src: "images/album/06.jpg", alt: "Nụ hôn khoe nhẫn", size: "" },
+      { src: "images/album/07.jpg", alt: "Chiếc nhẫn trên tay", size: "" },
+      { src: "images/album/08.jpg", alt: "Lời thề For Love", size: "tall" },
+      { src: "images/album/09.jpg", alt: "Cổ phục nhìn nhau", size: "" },
+      { src: "images/album/10.jpg", alt: "Đôi nhẫn cưới", size: "wide" }
     ]
   },
 

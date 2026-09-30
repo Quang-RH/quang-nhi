@@ -7,25 +7,25 @@
 
 :root {
   /* ---- Màu nền ---- */
-  --c-ivory:      #FBF8F3;   /* nền chính — trắng ngà ấm */
-  --c-ivory-2:    #F4EFE6;   /* nền phụ, dải xen kẽ */
-  --c-ink:        #16181C;   /* nền tối sang (hero, footer) */
-  --c-ink-soft:   #23262C;
+  --c-ivory:      #F6F0E7;   /* nền chính — be kem */
+  --c-ivory-2:    #EDE3D4;   /* nền phụ — be đậm hơn, dải xen kẽ */
+  --c-ink:        #4E3D31;   /* nền đậm — nâu mocha (hero, footer) */
+  --c-ink-soft:   #5E4B3D;
 
   /* ---- Màu chữ ---- */
-  --c-text:       #2A2D33;   /* chữ chính trên nền sáng */
-  --c-text-soft:  #6B6F78;   /* chữ phụ, mô tả */
-  --c-text-on-dark:      #F2EDE4;
-  --c-text-on-dark-soft: #A9A6A0;
+  --c-text:       #3E3128;   /* chữ chính — nâu cà phê đậm */
+  --c-text-soft:  #7F6D5F;   /* chữ phụ — nâu xám ấm */
+  --c-text-on-dark:      #F6EEE3;
+  --c-text-on-dark-soft: #D2C3B1;
 
-  /* ---- Nhấn: vàng champagne ---- */
-  --c-gold:       #B08D4F;   /* vàng đậm — chữ nhấn, viền */
-  --c-gold-soft:  #CBB183;   /* vàng nhạt — đường kẻ mảnh */
-  --c-gold-pale:  #EADFC8;   /* vàng rất nhạt — nền badge */
+  /* ---- Nhấn: be đồng (camel) ---- */
+  --c-gold:       #A07E5A;   /* be đồng — chữ nhấn, viền */
+  --c-gold-soft:  #C8AE8E;   /* be sữa — đường kẻ mảnh */
+  --c-gold-pale:  #E7DAC7;   /* be rất nhạt — nền badge */
 
   /* ---- Đường kẻ ---- */
-  --c-line:       #E3DCCF;
-  --c-line-dark:  #3A3D44;
+  --c-line:       #DDCFBC;
+  --c-line-dark:  #6B5646;
 
   /* ---- Trạng thái ---- */
   --c-ok:         #5B7A5B;
