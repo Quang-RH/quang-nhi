@@ -38,6 +38,10 @@
       var v = pick(el.getAttribute('data-bind'));
       if (v !== undefined && v !== null) el.textContent = v;
     });
+    // Ngày dạng 20.10.2026 trong các dòng ghi chú (vd hạn xác nhận) → tô đỏ
+    $$('.note[data-bind]').forEach(function (el) {
+      el.innerHTML = esc(el.textContent).replace(/(\d{1,2}[.\/]\d{1,2}[.\/]\d{4})/g, '<strong class="hl">$1</strong>');
+    });
   }
 
   /* Tiêu đề tab + thẻ chia sẻ Zalo/Facebook */

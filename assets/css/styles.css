@@ -1001,3 +1001,19 @@ body::before {
 /* Màn chào có ảnh: dời khung chữ xuống nửa dưới để lộ mặt hai người */
 .envelope.has-scene { place-items: end center; padding-bottom: max(8svh, 2.5rem); }
 .envelope.has-scene .envelope__inner { border-color: rgba(246,240,231,.28); outline-color: rgba(246,240,231,.12); padding-block: clamp(1.5rem, 6vw, 2.5rem); }
+
+
+/* =====================================================================
+   THÔNG TIN QUAN TRỌNG — tô đỏ rượu (giờ · ngày · nơi · hạn · số TK)
+   ===================================================================== */
+.event__time   { color: var(--c-accent); font-weight: 400; }
+.event__date   { color: var(--c-accent); font-weight: 500; }
+.event__venue  { color: var(--c-accent); }
+.event         { border-top-color: var(--c-accent); }
+.family__name  { color: var(--c-accent); }
+.hl            { color: var(--c-accent); font-weight: 600; }
+.gift__number  { color: var(--c-accent); font-weight: 500; border-color: rgba(139,30,36,.35); }
+.gift__number:hover { background: var(--c-accent-soft); border-color: var(--c-accent); }
+.guest-line strong { color: var(--c-accent); }
+/* Trên nền ảnh tối: đỏ đậm khó đọc → dùng đỏ hồng sáng hơn cho con số đếm ngược */
+.cd__num       { color: #F0C9C2; }

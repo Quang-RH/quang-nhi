@@ -31,6 +31,11 @@
   /* ---- Lớp phủ nâu mocha trên ảnh nền (đếm ngược, lời kết, màn chào) ---- */
   --scene-veil: linear-gradient(180deg, rgba(58,44,34,.62), rgba(58,44,34,.80));
 
+  /* ---- Đỏ rượu: chỉ dùng cho THÔNG TIN QUAN TRỌNG (giờ, ngày, nơi, hạn, số TK)
+     cùng màu đỏ với tên trên thiệp giấy in ---- */
+  --c-accent:      #8B1E24;
+  --c-accent-soft: #F3E1DC;
+
   /* ---- Đường kẻ ---- */
   --c-line:       #DDCFBC;
   --c-line-dark:  #6B5646;
