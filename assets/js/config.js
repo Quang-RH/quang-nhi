@@ -33,7 +33,7 @@ const CONFIG = {
       shortName: "Đắc Quang",
       role:      "Chú rể",
       photo:     "images/groom.jpg",
-      intro:     "Con trai",
+      intro:     "Trưởng nam",
       father:    "Ông Hồ Quang Minh",
       mother:    "Bà Nguyễn Mộng Thúy",
       address:   "Đường Quốc lộ 13 cũ, Phường Hiệp Bình, TP. Hồ Chí Minh"
@@ -43,7 +43,7 @@ const CONFIG = {
       shortName: "Trúc Nhi",
       role:      "Cô dâu",
       photo:     "images/bride.jpg",
-      intro:     "Con gái",
+      intro:     "Trưởng nữ",
       father:    "Ông Bùi Anh Tuấn",
       mother:    "Bà Nguyễn Đàm Quỳnh Giao",
       address:   "Đường Phạm Thị Hớn, Xã Phước Lý, Tỉnh Tây Ninh"
@@ -99,15 +99,6 @@ const CONFIG = {
     title:   "Thời gian & Địa điểm",
     items: [
       {
-        name:    "Lễ Vu Quy",
-        side:    "Nhà gái",
-        time:    "09:00",
-        date:    "Chủ Nhật, 01.11.2026",
-        venue:   "Tư gia nhà gái",
-        address: "...... , ...... , ......",
-        mapUrl:  ""
-      },
-      {
         name:    "Tiệc cưới",
         side:    "Nhà hàng",
         time:    "11:00",
@@ -115,6 +106,15 @@ const CONFIG = {
         venue:   "Gold Palace · Sảnh tiệc tầng 5",
         address: "329 Nơ Trang Long, Phường Bình Lợi Trung, TP. Hồ Chí Minh",
         mapUrl:  "https://www.google.com/maps/search/?api=1&query=Gold+Palace+329+N%C6%A1+Trang+Long+TP+H%E1%BB%93+Ch%C3%AD+Minh"
+      },
+      {
+        name:    "Lễ Vu Quy",
+        side:    "Nhà gái",
+        time:    "08:00",
+        date:    "Thứ Ba, 03.11.2026",
+        venue:   "Tư gia nhà gái",
+        address: "Đường Phạm Thị Hớn, Xã Phước Lý, Tỉnh Tây Ninh",
+        mapUrl:  "https://www.google.com/maps/search/?api=1&query=10.647887,106.560695"
       },
       {
         name:    "Lễ Thành Hôn",
