@@ -181,17 +181,18 @@ const CONFIG = {
       {
         side:   "Nhà trai",
         owner:  "HO DAC QUANG",
-        bank:   "Vietcombank",
-        number: "0123456789",
+        bank:   "ACB",
+        number: "18639967",
         qr:     "images/qr/groom.png"
-      },
-      {
-        side:   "Nhà gái",
-        owner:  "BUI TRUC NHI",
-        bank:   "Techcombank",
-        number: "9876543210",
-        qr:     "images/qr/bride.png"
       }
+      // Nhà gái: bổ sung sau — bỏ dấu // ở 7 dòng dưới, điền đúng thông tin, thêm dấu phẩy sau "}" ở trên
+      // ,{
+      //   side:   "Nhà gái",
+      //   owner:  "BUI TRUC NHI",
+      //   bank:   "......",
+      //   number: "......",
+      //   qr:     "images/qr/bride.png"
+      // }
     ]
   },
 
