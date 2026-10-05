@@ -1039,3 +1039,112 @@ body::before {
   line-height: 1.5;
 }
 .event__date { font-variant-numeric: lining-nums; }   /* số thẳng hàng, không lên xuống như chữ viết */
+
+
+/* =====================================================================
+   MÀN CHÀO — nút mở thiệp là con dấu sáp trái tim (không chữ)
+   ===================================================================== */
+.seal {
+  position: relative;
+  width: 76px; height: 76px;
+  margin: var(--sp-1) auto 0;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #B23A3F, var(--c-accent) 55%, #5E1216);
+  box-shadow: inset 0 0 0 4px rgba(255,255,255,.08), inset 0 -6px 12px rgba(0,0,0,.25), 0 10px 26px rgba(0,0,0,.35);
+  cursor: pointer;
+  animation: sealBeat 1.8s var(--ease) infinite;
+  transition: transform .3s var(--ease);
+}
+.seal:hover { animation-play-state: paused; transform: scale(1.08); }
+.seal:focus-visible { outline: 2px solid var(--c-gold-soft); outline-offset: 6px; }
+.seal__icon { width: 30px; height: 28px; fill: #FBEDE6; filter: drop-shadow(0 1px 1px rgba(0,0,0,.3)); }
+.seal__ring {
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(240,201,194,.7);
+  animation: sealRing 1.8s var(--ease) infinite;
+}
+@keyframes sealBeat { 0%,100%{transform:scale(1)} 14%{transform:scale(1.09)} 28%{transform:scale(1)} 42%{transform:scale(1.06)} 56%{transform:scale(1)} }
+@keyframes sealRing { 0%{transform:scale(.9);opacity:.9} 100%{transform:scale(1.55);opacity:0} }
+
+
+/* =====================================================================
+   LỄ CƯỚI — tờ lịch + trái tim ngày cưới + bản đồ
+   ===================================================================== */
+.events { grid-template-columns: 1fr; max-width: 34rem; margin-inline: auto; }
+.event--cal .event__side { margin: 0 0 .4rem; }
+.event--cal .event__name { margin: 0 0 var(--sp-3); }
+
+.cal { margin: 0 auto var(--sp-3); width: min(100%, 21rem); }
+.cal__title {
+  margin: 0 0 .9rem;
+  font-family: var(--f-display);
+  font-size: 1.35rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-variant-numeric: lining-nums;
+  color: var(--c-text);
+}
+.cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: .35rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.cal__dow {
+  padding: .45rem 0;
+  margin-bottom: .3rem;
+  background: var(--c-ink);
+  color: var(--c-text-on-dark);
+  font-size: .6875rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+}
+.cal__dow:first-child { border-radius: 3px 0 0 3px; }
+.cal__dow:nth-child(7) { border-radius: 0 3px 3px 0; }
+.cal__day {
+  position: relative;
+  display: grid; place-items: center;
+  height: 2.2rem;
+  font-size: .9375rem;
+  color: var(--c-text-soft);
+}
+.cal__day--wed svg {
+  position: absolute;
+  width: 2.5rem; height: 2.3rem;
+  fill: var(--c-accent);
+  filter: drop-shadow(0 3px 6px rgba(139,30,36,.35));
+  animation: heartBeat 1.4s var(--ease) infinite;
+}
+.cal__day--wed b { position: relative; color: #fff; font-weight: 600; }
+.cal__day--wed::before {
+  content: ""; position: absolute;
+  width: 2.6rem; height: 2.6rem; border-radius: 50%;
+  border: 1px solid var(--c-accent);
+  animation: sealRing 1.4s var(--ease) infinite;
+}
+@keyframes heartBeat { 0%,100%{transform:scale(1)} 15%{transform:scale(1.18)} 30%{transform:scale(1)} 45%{transform:scale(1.1)} 60%{transform:scale(1)} }
+
+.event__lunar {
+  margin: -.9rem 0 var(--sp-3);
+  font-family: var(--f-display);
+  font-style: italic;
+  color: var(--c-text-soft);
+}
+.event__embed {
+  position: relative;
+  margin: 0 calc(-1 * clamp(1.25rem, 4vw, 1.75rem)) var(--sp-3);
+  aspect-ratio: 4 / 3;
+  border-top: 1px solid var(--c-line);
+  border-bottom: 1px solid var(--c-line);
+  background: var(--c-ivory-2);
+}
+.event__embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .seal, .seal__ring, .cal__day--wed svg, .cal__day--wed::before { animation: none !important; }
+}
+
+.event__route { display: block; margin: 0 0 var(--sp-3); text-decoration: none; }
+.event__route img { width: 100%; border: 1px solid var(--c-line); box-shadow: var(--shadow-soft); }
+.event__route span { display: block; margin-top: .5rem; font-size: var(--fs-eyebrow); letter-spacing: .2em; text-transform: uppercase; color: var(--c-gold); }

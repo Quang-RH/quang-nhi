@@ -96,34 +96,22 @@ const CONFIG = {
   events: {
     show:    true,
     eyebrow: "Chương trình",
-    title:   "Thời gian & Địa điểm",
+    title:   "Lễ cưới",
+    // Chỉ 1 thẻ: tiệc cưới — vẽ dạng tờ lịch, trái tim đập ở ngày cưới
     items: [
       {
         name:    "Tiệc cưới",
-        side:    "Nhà hàng",
+        side:    "Trân trọng kính mời",
+        calendar: { year: 2026, month: 11, day: 1 },
         date:    "Chủ Nhật - 01.11.2026",
         time:    "Đón khách 11:00 | Khai tiệc 12:00",
+        lunar:   "Nhằm ngày 23 tháng 9 năm Bính Ngọ",
         venue:   "Gold Palace · Sảnh tiệc tầng 5",
         address: "329 Nơ Trang Long, Phường Bình Lợi Trung, TP. Hồ Chí Minh",
-        mapUrl:  "https://www.google.com/maps/search/?api=1&query=Gold+Palace+329+N%C6%A1+Trang+Long+TP+H%E1%BB%93+Ch%C3%AD+Minh"
-      },
-      {
-        name:    "Lễ Vu Quy",
-        side:    "Nhà gái",
-        date:    "Thứ Ba - 03.11.2026",
-        time:    "Hôn lễ cử hành lúc 08:00",
-        venue:   "Tư gia nhà gái",
-        address: "Đường Phạm Thị Hớn, Xã Phước Lý, Tỉnh Tây Ninh",
-        mapUrl:  "https://www.google.com/maps/search/?api=1&query=10.647887,106.560695"
-      },
-      {
-        name:    "Lễ Thành Hôn",
-        side:    "Nhà trai",
-        date:    "Thứ Ba - 03.11.2026",
-        time:    "Hôn lễ cử hành lúc 11:30",
-        venue:   "Tư gia nhà trai",
-        address: "Đường Quốc lộ 13 cũ, Phường Hiệp Bình, TP. Hồ Chí Minh",
-        mapUrl:  ""
+        // Bản đồ nhúng ngay trong thiệp + nút mở Google Maps chỉ đường
+        mapQuery: "Gold Palace, 329 Nơ Trang Long, Bình Thạnh, Hồ Chí Minh",
+        routeMap: "images/map-gold-palace.jpg",   // sơ đồ đường đi chính thức của nhà hàng
+        mapUrl:  "https://www.google.com/maps/dir/?api=1&destination=Gold+Palace+329+N%C6%A1+Trang+Long+H%E1%BB%93+Ch%C3%AD+Minh"
       }
     ]
   },
@@ -188,12 +176,10 @@ const CONFIG = {
         qr:     "images/qr/groom.png"
       },
       {
-        // Nhà gái: bổ sung sau — điền bank + number + qr là thẻ tự hiện QR.
-        // Còn "......" thì thẻ hiện ô "Đang cập nhật".
         side:   "Nhà gái",
         owner:  "BUI TRUC NHI",
-        bank:   "......",
-        number: "......",
+        bank:   "VietinBank",
+        number: "108867189317",
         qr:     "images/qr/bride.png"
       }
     ]

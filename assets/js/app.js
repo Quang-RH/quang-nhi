@@ -143,19 +143,49 @@
     $('#eventsGrid').innerHTML = c.items.map(function (e) {
       var map = filled(e.mapUrl)
         ? '<p class="event__map"><a class="btn" href="' + esc(e.mapUrl) +
-          '" target="_blank" rel="noopener">Xem bản đồ</a></p>'
+          '" target="_blank" rel="noopener">Chỉ đường</a></p>'
         : '';
-      return '<article class="event">' +
-        // Thứ tự: tên lễ → bên → NGÀY (chữ lớn) → giờ (dòng nhỏ bên dưới)
-        '<h3 class="event__name">' + esc(e.name || '') + '</h3>' +
+      var embed = filled(e.mapQuery)
+        ? '<div class="event__embed"><iframe title="Bản đồ ' + esc(e.venue || '') + '" loading="lazy" ' +
+          'referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=' +
+          encodeURIComponent(e.mapQuery) + '&hl=vi&z=16&output=embed"></iframe></div>'
+        : '';
+      return '<article class="event' + (e.calendar ? ' event--cal' : '') + '">' +
         '<p class="event__side">' + esc(e.side || '') + '</p>' +
+        '<h3 class="event__name">' + esc(e.name || '') + '</h3>' +
+        (e.calendar ? calendarHtml(e.calendar) : '') +
         '<p class="event__date">' + esc(e.date || '') + '</p>' +
         '<p class="event__time">' + esc(e.time || '') + '</p>' +
+        (filled(e.lunar)   ? '<p class="event__lunar">' + esc(e.lunar) + '</p>' : '') +
         (filled(e.venue)   ? '<p class="event__venue">' + esc(e.venue) + '</p>' : '') +
         (filled(e.address) ? '<p class="event__address">' + esc(e.address) + '</p>' : '') +
+        embed +
+        (filled(e.routeMap) ? '<a class="event__route" href="' + esc(e.routeMap) + '" target="_blank" rel="noopener">' +
+          '<img src="' + esc(e.routeMap) + '" alt="Sơ đồ đường đi tới ' + esc(e.venue || '') + '" loading="lazy">' +
+          '<span>Chạm để xem sơ đồ lớn</span></a>' : '') +
         map +
         '</article>';
     }).join('');
+  }
+
+
+  /* Tờ lịch tháng (tuần bắt đầu Thứ Hai, giống thiệp giấy) — ngày cưới có trái tim đập */
+  function calendarHtml(c) {
+    var first = new Date(c.year, c.month - 1, 1).getDay();      // 0 = Chủ Nhật
+    var lead  = (first + 6) % 7;                                 // số ô trống trước ngày 1
+    var days  = new Date(c.year, c.month, 0).getDate();
+    var head  = ['T2','T3','T4','T5','T6','T7','CN'].map(function (d) {
+      return '<span class="cal__dow">' + d + '</span>';
+    }).join('');
+    var cells = '';
+    for (var i = 0; i < lead; i++) cells += '<span></span>';
+    for (var d = 1; d <= days; d++) {
+      cells += d === c.day
+        ? '<span class="cal__day cal__day--wed" aria-label="Ngày cưới"><svg viewBox="0 0 32 29" aria-hidden="true"><path d="M16 28.5S1 19.6 1 9.3C1 4.6 4.7 1 9.2 1c2.8 0 5.3 1.4 6.8 3.6C17.5 2.4 20 1 22.8 1 27.3 1 31 4.6 31 9.3 31 19.6 16 28.5 16 28.5z"/></svg><b>' + d + '</b></span>'
+        : '<span class="cal__day">' + d + '</span>';
+    }
+    return '<div class="cal"><p class="cal__title">Tháng ' + c.month + ' · ' + c.year + '</p>' +
+      '<div class="cal__grid">' + head + cells + '</div></div>';
   }
 
 
