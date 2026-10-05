@@ -1210,3 +1210,21 @@ body::before {
     rgba(246,240,231,.86) 54%, rgba(246,240,231,.97) 70%, var(--c-ivory) 100%);
 }
 .hero__cue { bottom: 1.25rem; }
+
+/* Nút lưu mã QR về máy */
+.gift__save {
+  display: inline-flex; align-items: center; gap: .45rem;
+  margin-top: .75rem;
+  padding: .55em 1.2em;
+  border: 1px solid var(--c-gold-soft);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--c-gold);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: .04em;
+  transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+}
+.gift__save:hover { background: var(--c-gold); border-color: var(--c-gold); color: #fff; }
+.gift__save svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.gift__card { display: flex; flex-direction: column; align-items: center; }

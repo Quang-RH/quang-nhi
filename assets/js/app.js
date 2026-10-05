@@ -461,6 +461,51 @@
   }
 
 
+  /* Lưu mã QR: dựng 1 tấm ảnh gọn (QR + tên + ngân hàng + số TK) rồi
+     • điện thoại hỗ trợ chia sẻ file → mở bảng "Lưu hình ảnh" (iPhone/Android)
+     • còn lại → tải file .png về máy */
+  function saveQr(a, btn) {
+    if (!a || !filled(a.qr)) return;
+    var label = $('span', btn), old = label.textContent;
+    var img = new Image();
+    img.onload = function () {
+      var W = 900, H = 1180, cv = document.createElement('canvas');
+      cv.width = W; cv.height = H;
+      var x = cv.getContext('2d');
+      x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, W, H);
+      x.strokeStyle = '#C8AE8E'; x.lineWidth = 3; x.strokeRect(24, 24, W - 48, H - 48);
+      x.textAlign = 'center';
+      x.fillStyle = '#A07E5A'; x.font = '600 30px "Be Vietnam Pro", Arial, sans-serif';
+      x.fillText((a.side || '').toUpperCase(), W / 2, 110);
+      x.drawImage(img, 130, 150, 640, 640);
+      x.fillStyle = '#3E3128'; x.font = '600 44px "Be Vietnam Pro", Arial, sans-serif';
+      x.fillText(a.owner || '', W / 2, 880);
+      x.fillStyle = '#7F6D5F'; x.font = '400 34px "Be Vietnam Pro", Arial, sans-serif';
+      x.fillText(a.bank || '', W / 2, 940);
+      x.fillStyle = '#8B1E24'; x.font = '600 52px "Be Vietnam Pro", Arial, sans-serif';
+      x.fillText(a.number || '', W / 2, 1020);
+      x.fillStyle = '#A07E5A'; x.font = '400 26px "Be Vietnam Pro", Arial, sans-serif';
+      x.fillText((CONFIG.footer && CONFIG.footer.signature) || '', W / 2, 1100);
+      cv.toBlob(function (blob) {
+        var name = 'QR-' + String(a.owner || 'mung-cuoi').replace(/\s+/g, '-') + '.png';
+        var file = new File([blob], name, { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          navigator.share({ files: [file], title: name }).catch(function () {});
+        } else {
+          var url = URL.createObjectURL(blob), link = document.createElement('a');
+          link.href = url; link.download = name;
+          document.body.appendChild(link); link.click(); link.remove();
+          setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+        }
+        label.textContent = 'Đã lưu';
+        setTimeout(function () { label.textContent = old; }, 1800);
+      }, 'image/png');
+    };
+    img.onerror = function () { window.open(a.qr, '_blank'); };
+    img.src = a.qr;
+  }
+
+
   /* ===================================================================
      9. MỪNG CƯỚI — bấm vào số tài khoản là chép luôn
      =================================================================== */
@@ -469,7 +514,7 @@
     if (!c || !c.show || !c.accounts || !c.accounts.length) return;
     $('#gift').hidden = false;
 
-    $('#giftGrid').innerHTML = c.accounts.map(function (a) {
+    $('#giftGrid').innerHTML = c.accounts.map(function (a, i) {
       // Chưa có số tài khoản (còn "......") → giữ chỗ thẻ, hiện ô "Đang cập nhật"
       if (!filled(a.number)) {
         return '<div class="gift__card gift__card--pending">' +
@@ -491,10 +536,15 @@
         '<button type="button" class="gift__number" data-copy="' + esc(a.number || '') + '">' +
           esc(a.number || '') + ' <small>chép</small>' +
         '</button>' +
+        (filled(a.qr) ? '<button type="button" class="gift__save" data-save="' + i + '">' +
+          '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>' +
+          '<span>Lưu mã QR</span></button>' : '') +
         '</div>';
     }).join('');
 
     $('#giftGrid').addEventListener('click', function (e) {
+      var sv = e.target.closest('[data-save]');
+      if (sv) { saveQr(c.accounts[Number(sv.dataset.save)], sv); return; }
       var btn = e.target.closest('[data-copy]');
       if (!btn) return;
       var num   = btn.dataset.copy;
