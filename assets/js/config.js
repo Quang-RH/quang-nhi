@@ -166,7 +166,7 @@ const CONFIG = {
     show:    true,
     eyebrow: "Thay lời chúc phúc",
     title:   "Gửi trao yêu thương",
-    note:    "Sự có mặt của quý vị đã là món quà lớn nhất. Nếu ở xa không tiện đến, đây là đôi dòng gửi gắm yêu thương.",
+    note:    "Cảm ơn quý vị đã dành tình cảm cho chúng tôi trong ngày trọng đại này.",
     accounts: [
       {
         side:   "Nhà trai",
