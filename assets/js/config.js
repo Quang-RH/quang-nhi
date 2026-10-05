@@ -150,7 +150,7 @@ const CONFIG = {
      Để rỗng "" thì form vẫn hiện nhưng KHÔNG gửi đi đâu (chế độ thử).
      --------------------------------------------------------------- */
   rsvp: {
-    show:     true,
+    show:     false,   // thiệp chỉ để xem thông tin — tắt form xác nhận
     eyebrow:  "Xác nhận",
     title:    "Quý vị sẽ đến chứ?",
     note:     "Xin quý vị phản hồi trước ngày 20.10.2026 để gia đình tiện sắp xếp chỗ ngồi.",
@@ -164,8 +164,8 @@ const CONFIG = {
      --------------------------------------------------------------- */
   gift: {
     show:    true,
-    eyebrow: "Mừng cưới",
-    title:   "Hộp mừng cưới",
+    eyebrow: "Thay lời chúc phúc",
+    title:   "Gửi trao yêu thương",
     note:    "Sự có mặt của quý vị đã là món quà lớn nhất. Nếu ở xa không tiện đến, đây là đôi dòng gửi gắm yêu thương.",
     accounts: [
       {
@@ -189,7 +189,7 @@ const CONFIG = {
      10. SỔ LƯU BÚT — lời chúc khách gửi (đi chung endpoint với RSVP)
      --------------------------------------------------------------- */
   guestbook: {
-    show:    true,
+    show:    false,   // tắt form gửi lời chúc
     eyebrow: "Lưu bút",
     title:   "Gửi lời chúc phúc",
     note:    "Mỗi lời chúc đều được gia đình đọc và giữ lại.",
