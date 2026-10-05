@@ -1151,3 +1151,62 @@ body::before {
 /* Mép trên ảnh màn đầu/màn chào: KHÔNG phủ tối (trước đây trông như tấm rèm rủ xuống) */
 .hero__veil { background: linear-gradient(180deg, rgba(52,39,30,0) 0%, rgba(52,39,30,0) 42%, rgba(52,39,30,.55) 72%, rgba(52,39,30,.42) 100%); }
 .envelope.has-scene::after { background: linear-gradient(180deg, rgba(58,44,34,.10) 0%, rgba(58,44,34,.45) 45%, rgba(58,44,34,.78) 100%); }
+
+
+/* =====================================================================
+   GỌN CHỮ — chỉ 2 vai, mỗi vai 1 kiểu (tránh rối mắt)
+   • Cormorant Garamond: CHỈ cho tên + tiêu đề mục + câu trên dải ảnh.
+     KHÔNG viết hoa (font này đặt dấu chữ HOA tiếng Việt lệch: "CHỦ" thành "CHỬ").
+   • Be Vietnam Pro: mọi thứ còn lại — ngày, giờ, số, địa chỉ, nút, nhãn.
+   ===================================================================== */
+.event__date, .event__time, .cal__title, .cal__day, .cd__num, .hero__date, .footer__date {
+  font-family: var(--f-body);
+}
+.event__date {
+  font-size: clamp(1.15rem, 4.4vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.event__time { font-weight: 400; color: var(--c-text); letter-spacing: .02em; }
+.cal__title  { font-size: .8125rem; font-weight: 600; letter-spacing: .3em; color: var(--c-text); }
+.cd__num     { font-weight: 300; font-size: clamp(1.9rem, 7.5vw, 2.9rem); letter-spacing: -.01em; }
+
+/* Bớt chữ nghiêng: chỉ giữ nghiêng ở câu trên dải ảnh */
+.lead, .event__lunar, .family__address, .hero__lunar, .countdown__done {
+  font-family: var(--f-body);
+  font-style: normal;
+}
+.lead { font-size: var(--fs-body); font-weight: 300; line-height: 1.9; }
+.event__lunar, .hero__lunar { font-size: var(--fs-small); }
+
+/* =====================================================================
+   MÀN ĐẦU — tên đỏ rượu trên nền sáng (thay chữ kem trên ảnh sáng bị chìm)
+   ===================================================================== */
+.hero { color: var(--c-text); }
+.hero__veil {
+  background: linear-gradient(180deg,
+    rgba(246,240,231,0) 0%, rgba(246,240,231,0) 40%,
+    rgba(246,240,231,.78) 62%, rgba(246,240,231,.94) 80%, var(--c-ivory) 100%);
+}
+.hero::after { display: none; }
+.hero__content { background: none; }
+.hero__names {
+  color: var(--c-accent);
+  font-weight: 500;
+  text-shadow: 0 1px 0 rgba(255,255,255,.6), 0 0 22px rgba(255,255,255,.75);
+}
+.hero__amp  { color: var(--c-gold); }
+.hero__date { color: var(--c-text); font-weight: 600; }
+.hero__lunar, .hero__cue { color: var(--c-text-soft); }
+.rule--light::before, .rule--light::after { background: linear-gradient(90deg, transparent, var(--c-gold-soft)); }
+.rule--light span { border-color: var(--c-gold); }
+.hero__cue i { background: linear-gradient(180deg, var(--c-gold), transparent); }
+.hero { padding-bottom: calc(6svh + 2.5rem); }
+.hero__veil {
+  background: linear-gradient(180deg,
+    rgba(246,240,231,0) 0%, rgba(246,240,231,0) 34%,
+    rgba(246,240,231,.86) 54%, rgba(246,240,231,.97) 70%, var(--c-ivory) 100%);
+}
+.hero__cue { bottom: 1.25rem; }
