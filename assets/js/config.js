@@ -59,7 +59,7 @@ const CONFIG = {
     eyebrow:   "Save the date",
     // Ảnh nền màn mở đầu. Để rỗng "" thì dùng nền mực đen trơn có khung vàng,
     // cũng rất sang — dùng tạm được cho tới khi có ảnh cưới.
-    background: "images/hero.jpg",
+    background: "images/hero-2.jpg",
     // Ngày hiển thị cho người đọc
     dateText:  "Chủ Nhật, 01 · 11 · 2026",
     lunarText: "Nhằm ngày 23 tháng 9 năm Bính Ngọ",
@@ -217,7 +217,7 @@ const CONFIG = {
      --------------------------------------------------------------- */
   scenery: {
     show:      true,
-    envelope:  "images/hero.jpg",
+    envelope:  "images/hero-2.jpg",
     countdown: "images/band/countdown.jpg",
     footer:    "images/band/footer.jpg",
     bands: [

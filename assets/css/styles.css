@@ -1148,3 +1148,6 @@ body::before {
 .event__route { display: block; margin: 0 0 var(--sp-3); text-decoration: none; }
 .event__route img { width: 100%; border: 1px solid var(--c-line); box-shadow: var(--shadow-soft); }
 .event__route span { display: block; margin-top: .5rem; font-size: var(--fs-eyebrow); letter-spacing: .2em; text-transform: uppercase; color: var(--c-gold); }
+/* Mép trên ảnh màn đầu/màn chào: KHÔNG phủ tối (trước đây trông như tấm rèm rủ xuống) */
+.hero__veil { background: linear-gradient(180deg, rgba(52,39,30,0) 0%, rgba(52,39,30,0) 42%, rgba(52,39,30,.55) 72%, rgba(52,39,30,.42) 100%); }
+.envelope.has-scene::after { background: linear-gradient(180deg, rgba(58,44,34,.10) 0%, rgba(58,44,34,.45) 45%, rgba(58,44,34,.78) 100%); }
