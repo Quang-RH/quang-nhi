@@ -204,7 +204,7 @@ const CONFIG = {
   music: {
     show:  true,
     src:   "assets/music.mp3",
-    title: "Nhạc nền"
+    title: "50 Năm Về Sau"
   },
 
   /* ---------------------------------------------------------------
