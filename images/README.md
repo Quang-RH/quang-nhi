@@ -10,6 +10,7 @@ không để lòi ô ảnh vỡ — nên cứ đẩy thiệp lên trước, bổ
 | `bride.jpg` | Ảnh cô dâu (hiện dạng tròn) | vuông, 800×800 |
 | `share-cover.jpg` | Ảnh hiện khi dán link vào Zalo/Facebook | 1200×630 |
 | `favicon.png` | Icon nhỏ trên tab trình duyệt | 64×64 |
+| `apple-touch-icon.png` | Icon khi lưu thiệp ra màn hình chính iPhone | 180×180 |
 | `album/01.jpg` ... | Ảnh cưới trong album | < 400KB mỗi tấm |
 | `qr/groom.png` · `qr/bride.png` | QR chuyển khoản hai bên | vuông |
 
