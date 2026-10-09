@@ -24,6 +24,10 @@
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
+<!-- Tải ảnh màn đầu NGAY khi mở link, song song với chữ và CSS, khỏi chờ JS chạy xong.
+     Đổi hero.background / scenery.envelope trong config.js thì sửa luôn đường dẫn này. -->
+<link rel="preload" as="image" href="images/hero-3.jpg" fetchpriority="high">
+
 <!-- Font: Cormorant Garamond (chữ trang trí) + Be Vietnam Pro (chữ đọc)
      Cả hai đều có bộ ký tự tiếng Việt đầy đủ. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -62,6 +62,7 @@ const CONFIG = {
     eyebrow:   "Save the date",
     // Ảnh nền màn mở đầu. Để rỗng "" thì dùng nền mực đen trơn có khung vàng,
     // cũng rất sang — dùng tạm được cho tới khi có ảnh cưới.
+    // Đổi ảnh này thì sửa luôn dòng preload "hero-3.jpg" ở đầu index.html.
     background: "images/hero-3.jpg",
     // Ngày hiển thị cho người đọc
     dateText:  "Chủ Nhật, 01 · 11 · 2026",
