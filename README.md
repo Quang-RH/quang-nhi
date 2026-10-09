@@ -48,6 +48,10 @@ assets/js/config.js
 └── 12. footer       → lời kết
 ```
 
+> **Ngoại lệ duy nhất:** tiêu đề + ảnh xem trước khi gửi link qua Zalo/Facebook (mục `1. site`)
+> phải sửa thêm ở khối `<meta>` đầu file `index.html` — bot Zalo/Facebook không chạy JavaScript
+> nên không đọc được `config.js`.
+
 **Quy tắc sửa an toàn:**
 
 - Chỉ đổi phần chữ nằm giữa hai dấu nháy `"..."`
@@ -68,7 +72,7 @@ Sửa xong, xem thử trên máy trước khi đẩy lên (xem mục 4).
 |---|---|---|---|
 | `images/` | `hero.jpg` | Ảnh nền màn mở đầu | ngang, 2000px, < 500KB |
 | `images/` | `groom.jpg` · `bride.jpg` | Ảnh chân dung hai bạn | vuông, 800px |
-| `images/` | `share-cover.jpg` | Ảnh hiện khi dán link vào Zalo/FB | 1200×630 |
+| `images/` | `share-cover.jpg` | Ảnh hiện khi dán link vào Zalo/FB (đổi tên file thì sửa luôn `og:image` trong `index.html`) | 1200×630 |
 | `images/` | `favicon.png` | Icon nhỏ trên tab trình duyệt | 64×64 |
 | `images/album/` | `01.jpg`, `02.jpg`... | Ảnh cưới trong album | < 400KB mỗi tấm |
 | `images/qr/` | `groom.png` · `bride.png` | QR chuyển khoản | vuông |

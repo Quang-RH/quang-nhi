@@ -14,6 +14,9 @@ const CONFIG = {
 
   /* ---------------------------------------------------------------
      1. THÔNG TIN CHUNG — hiện ở tab trình duyệt & khi chia sẻ Zalo/FB
+     ⚠ Bot Zalo/Facebook KHÔNG đọc file này (bot không chạy JavaScript).
+       Đổi title / description / shareImage thì sửa LUÔN khối <meta>
+       ở đầu index.html, không thì link gửi đi vẫn hiện nội dung cũ.
      --------------------------------------------------------------- */
   site: {
     title:       "Đắc Quang & Trúc Nhi — Thiệp mời lễ thành hôn",
