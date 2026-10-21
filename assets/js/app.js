@@ -649,7 +649,7 @@
       var host = document.getElementById(b.after);
       if (!host || !filled(b.src)) return;
       var band = document.createElement('figure');
-      band.className = 'band';
+      band.className = 'band' + (b.textAt === 'low' ? ' band--low' : '');
       band.innerHTML =
         '<img class="band__img" src="' + esc(b.src) + '" alt="" loading="lazy">' +
         '<figcaption class="band__text">' +

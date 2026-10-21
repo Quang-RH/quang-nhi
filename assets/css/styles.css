@@ -936,6 +936,14 @@ body::before {
   transition: opacity 1.1s var(--ease) .25s, transform 1.1s var(--ease) .25s;
 }
 .band.is-in .band__text { opacity: 1; transform: none; }
+/* textAt: "low" — chữ ở giữa đè mặt người → hạ xuống phần dưới ảnh (tính theo chiều cao dải).
+   Chỉ màn DỌC: màn ngang (máy tính) dải chỉ lộ nửa trên ảnh, chữ ở giữa đã nằm trên đầu người. */
+@media (orientation: portrait) {
+  .band--low .band__text {
+    position: absolute; left: 0; right: 0; top: 68%;
+    margin-top: 0;
+  }
+}
 .band__quote {
   font-family: var(--f-display);
   font-style: italic; font-weight: 300;

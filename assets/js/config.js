@@ -217,6 +217,7 @@ const CONFIG = {
      • bands: dải ảnh tràn màn hình chen GIỮA các mục, mép mờ dần vào nền be.
        after = id của mục đứng ngay trên dải ảnh
        (invitation · families · events · countdown · album · rsvp · gift · guestbook)
+       textAt: "low" = hạ câu chữ xuống phần dưới ảnh (dùng khi chữ ở giữa đè lên mặt người)
      Muốn bỏ một dải: xoá khối { ... } đó. Muốn tắt hết: show: false
      --------------------------------------------------------------- */
   scenery: {
@@ -227,7 +228,7 @@ const CONFIG = {
     bands: [
       { after: "invitation", src: "images/band/b1.jpg",
         quote: "Và rồi, chúng tôi chọn nhau", sub: "cho hôm nay và mọi ngày về sau" },
-      { after: "events",     src: "images/band/b2.jpg",
+      { after: "events",     src: "images/band/b2.jpg", textAt: "low",
         quote: "Trăm năm tình viên mãn", sub: "Bạc đầu nghĩa phu thê" },
       { after: "gift",       src: "images/band/b3.jpg",
         quote: "Cảm ơn vì đã là một phần", sub: "trong ngày đẹp nhất của chúng tôi" }
