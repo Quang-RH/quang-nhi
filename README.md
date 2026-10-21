@@ -72,7 +72,7 @@ Sửa xong, xem thử trên máy trước khi đẩy lên (xem mục 4).
 |---|---|---|---|
 | `images/` | `hero.jpg` | Ảnh nền màn mở đầu | ngang, 2000px, < 500KB |
 | `images/` | `groom.jpg` · `bride.jpg` | Ảnh chân dung hai bạn | vuông, 800px |
-| `images/` | `share-cover.jpg` | Ảnh hiện khi dán link vào Zalo/FB (đổi tên file thì sửa luôn `og:image` trong `index.html`) | 1200×630 |
+| `images/` | `share-cover-2.jpg` | Ảnh hiện khi dán link vào Zalo/FB (đổi tên file thì sửa luôn `og:image` trong `index.html`) | 1200×630 |
 | `images/` | `favicon.png` | Icon nhỏ trên tab trình duyệt | 64×64 |
 | `images/` | `apple-touch-icon.png` | Icon khi lưu thiệp ra màn hình chính iPhone | 180×180 |
 | `images/album/` | `01.jpg`, `02.jpg`... | Ảnh cưới trong album | < 400KB mỗi tấm |

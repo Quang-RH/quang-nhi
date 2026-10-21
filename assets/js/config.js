@@ -22,7 +22,7 @@ const CONFIG = {
     title:       "Đắc Quang & Trúc Nhi — Thiệp mời lễ thành hôn",
     description: "Trân trọng kính mời quý vị đến dự lễ thành hôn của chúng tôi.",
     // Ảnh hiện ra khi dán link vào Zalo/Facebook (nên là ảnh ngang 1200×630)
-    shareImage:  "images/share-cover.jpg",
+    shareImage:  "images/share-cover-2.jpg",
     // Link gốc của thiệp — QR mã hoá đúng chuỗi này. ĐỪNG ĐỔI SAU KHI ĐÃ IN.
     url:         "https://quang-rh.github.io/quang-nhi/"
   },
@@ -62,8 +62,8 @@ const CONFIG = {
     eyebrow:   "Save the date",
     // Ảnh nền màn mở đầu. Để rỗng "" thì dùng nền mực đen trơn có khung vàng,
     // cũng rất sang — dùng tạm được cho tới khi có ảnh cưới.
-    // Đổi ảnh này thì sửa luôn dòng preload "hero-3.jpg" ở đầu index.html.
-    background: "images/hero-3.jpg",
+    // Đổi ảnh này thì sửa luôn dòng preload "hero-4.jpg" ở đầu index.html.
+    background: "images/hero-4.jpg",
     // Ngày hiển thị cho người đọc
     dateText:  "Chủ Nhật, 01 · 11 · 2026",
     lunarText: "Nhằm ngày 23 tháng 9 năm Bính Ngọ",
@@ -221,7 +221,7 @@ const CONFIG = {
      --------------------------------------------------------------- */
   scenery: {
     show:      true,
-    envelope:  "images/hero-3.jpg",
+    envelope:  "images/hero-4.jpg",
     countdown: "images/band/countdown.jpg",
     footer:    "images/band/footer.jpg",
     bands: [
