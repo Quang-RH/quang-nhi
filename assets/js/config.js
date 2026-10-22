@@ -110,7 +110,7 @@ const CONFIG = {
         date:    "Chủ Nhật - 01.11.2026",
         time:    "Đón khách 11:00 | Khai tiệc 12:00",
         lunar:   "Nhằm ngày 23 tháng 9 năm Bính Ngọ",
-        venue:   "Gold Palace · Sảnh tiệc tầng 5",
+        venue:   "Gold Palace · Sảnh tiệc tầng 2",
         address: "329 Nơ Trang Long, Phường Bình Lợi Trung, TP. Hồ Chí Minh",
         // Bản đồ nhúng ngay trong thiệp + nút mở Google Maps chỉ đường
         mapQuery: "Gold Palace, 329 Nơ Trang Long, Bình Thạnh, Hồ Chí Minh",
